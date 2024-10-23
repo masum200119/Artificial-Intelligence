@@ -1,0 +1,14 @@
+?- cd('C:/Users/MASUM/Downloads/Prolog').
+true.
+
+?- [abc2].
+true.
+
+?- food(pizza).
+true.
+
+?- meal(X), lunch(X).
+X = sandwich .
+
+?- dinner(sandwich).
+false.
