@@ -1,0 +1,11 @@
+?- cd('C:/Users/MASUM/Downloads/Prolog').
+true.
+
+?- [abc3].
+true.
+
+?- studies(charlie, What).
+What = csc135.
+
+?- professor(kirke, Students).
+Students = charlie 
