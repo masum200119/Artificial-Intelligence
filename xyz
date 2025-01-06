@@ -1,0 +1,53 @@
+% Define diseases
+disease(cold).
+disease(flu).
+disease(covid_19).
+
+% Define symptoms
+symptom(fever).
+symptom(cough).
+symptom(sore_throat).
+symptom(fatigue).
+symptom(shortness_of_breath).
+symptom(body_aches).
+
+% Define rules for each disease
+has_disease(cold) :-
+    symptom(cough),
+    symptom(sore_throat),
+    \+ symptom(fever). % no fever
+
+has_disease(flu) :-
+    symptom(fever),
+    symptom(cough),
+    symptom(body_aches),
+    symptom(fatigue).
+
+has_disease(covid_19) :-
+    symptom(fever),
+    symptom(cough),
+    symptom(fatigue),
+    symptom(shortness_of_breath).
+
+% Rule to check for matching disease based on symptoms
+symptom_list_matches(Disease, Symptoms) :-
+    disease(Disease),
+    match_symptoms(Disease, Symptoms).
+
+% Helper rule to match symptoms for each disease
+match_symptoms(cold, Symptoms) :-
+    member(cough, Symptoms),
+    member(sore_throat, Symptoms),
+    \+ member(fever, Symptoms).
+
+match_symptoms(flu, Symptoms) :-
+    member(fever, Symptoms),
+    member(cough, Symptoms),
+    member(body_aches, Symptoms),
+    member(fatigue, Symptoms).
+
+match_symptoms(covid_19, Symptoms) :-
+    member(fever, Symptoms),
+    member(cough, Symptoms),
+    member(fatigue, Symptoms),
+    member(shortness_of_breath, Symptoms).
